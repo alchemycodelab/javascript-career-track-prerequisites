@@ -39,6 +39,80 @@ for(let i = 0; i < array.length; i++) {
 // 3
 ```
 
+## Methods for Changing Array
+
+### `.push` and `.pop`
+
+These array methods add or remove an element from the **end** of an array.
+
+```js
+const letters = ['a', 'b', 'c'];
+
+// `.push` returns new length of array
+const newLength = letters.push('d'); // ['a', 'b', 'c', 'd']
+console.log(newLength);
+// 4
+
+// `.pop` returns removed element
+const popped = letters.pop(); // ['a', 'b', 'c'];
+console.log(popped);
+// 'd'
+```
+
+Push will accept more than one argument:
+
+```js
+const letters = ['a', 'b', 'c'];
+letters.push('d', 'e', 'f'); // ['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+### `.unshift` and `.shift`
+
+These array methods add or remove an element from the **start** of an array.
+
+```js
+const letters = ['a', 'b', 'c'];
+
+// `.unshift` returns new length of array
+const newLength = letters.unshift('d'); // ['d', 'a', 'b', 'c']
+console.log(newLength);
+// 4
+
+// `.shift` returns removed element
+const unshift = letters.shift(); // ['a', 'b', 'c']
+console.log(popped);
+// 'd'
+```
+
+Like push, unshift accepts multiple arguments.
+
+### `.splice`
+
+Splice can handle any type of insertion and/or removal. Parameters (some optional) are:
+
+`array.splice(<startingIndex>, <number of elements to remove>, <first element to add>, <first element to add>, ...)`
+
+```js
+const letters = ['a', 'b', 'c'];
+letters.splice(2, 1, 'd', 'e'); // ['a', 'b', 'd', 'e'];
+```
+
+## `.slice`
+
+Not to be confused with `.splice`, `.slice` copies an array:
+
+```js
+const letters = ['a', 'b', 'c'];
+const copy = letters.slice();
+copy.splice(1, 2);
+console.log(letters);
+// ['a', 'b', 'c']
+console.log(copy);
+// ['a']
+```
+
+Slice can optionally take start and end indexes from which to copy.
+
 ## Functional Array Methods
 
 Many of the methods available on an array take a function. The first
@@ -237,4 +311,17 @@ console.log(numbers);
 // [1, 10, 12, 3, 30, 7];
 ```
 
+### `.indexOf`
+
+IndexOf is really a shorthand special case for `.findIndex`:
+
+```js
+const words = ['peach', 'mango', 'apple', 'banana'];
+const foundIndex = words.findIndex(word => word === 'apple');
+// found is 2
+
+// does same thin as above:
+const index = words.indexOf('apple');
+// index is 2
+```
  

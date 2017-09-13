@@ -123,4 +123,3 @@ numbers.map(x => {
 // omit block and return on single expression return:
 numbers.map(x => x * x);
 ```
-

@@ -58,3 +58,43 @@ dog.play(ball);
 console.log(cat.happiness, dog.happiness);
 // 2 3
 ```
+
+## Chaining
+
+Chaining refers to the an object tht returns itself so that additional
+methods can be called directly from the prior method call.
+
+```js
+function Animal(name, type) {
+    this.name = name;
+    this.type = type;
+    this.stomach = [];
+    this.happiness = 1;
+}
+
+Animal.prototype.feed = function(food) {
+    this.stomach.push(food);
+    this.happiness += 2;
+    return this;
+}
+
+Animal.prototype.play = function(toy) {
+    if(toy.animalType !== this.type) return;
+    this.happiness += 1;
+    return this;
+} 
+
+Animal.prototype.potty = function() {
+    this.stomach.shift();
+    this.happiness += 1;
+    return this;
+} 
+
+const dog = new Animal('lassie', 'dog');
+const ball = new Toy('ball', 'dog'); // name and type of toy
+
+dog.play(ball).feed('chicken').feed('bones').potty();
+
+console.log(dog.happiness);
+// 7
+```
