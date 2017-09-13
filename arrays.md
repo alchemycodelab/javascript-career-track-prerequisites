@@ -206,4 +206,35 @@ console.log(animalsByType);
 
 Unlike the previous array methods, calling `.sort` _changes the array_
 rather than creating a new array. It also has a different style of 
-callback function than the other array methods
+callback function than the other array methods, a comparison function that
+takes two items and you indicate the relative sort order by returning a negative number,
+zero, or a positive number.
+
+```js
+const numbers = [3, 7, 2, 7, 2, 2, 9];
+numbers.sort((a, b) => {
+    if(a === b) return 0;
+    if(a < b) return -1;
+    return 1;
+});
+console.log(numbers);
+// [2, 2, 2, 3, 7, 7, 9]
+```
+
+The default sort if lexical sorting (sorted alphabetically).
+
+```js
+const words = ['peach', 'mango', 'apple', 'banana'];
+const numbers = [10, 1, 12, 30, 3, 7];
+
+words.sort();
+numbers.sort();
+
+console.log(words);
+// ['apple', 'banana', 'mango', 'peach']
+
+console.log(numbers);
+// [1, 10, 12, 3, 30, 7];
+```
+
+ 
