@@ -1,8 +1,6 @@
 Control Flow
 ===
 
-Students should be proficient to fluent with the following control flow statements
-
 ## `if` and `else`
 
 Write singular `if`, `if` with `else`, and chained `if`, `else if`, `else` control flow constructs:
