@@ -2,7 +2,7 @@ Constructor Functions
 ===
 
 Prior to the introduction of the `class` in ES6, constructor functions
-where the way to define "classes" in JavaScript. (Classes and constructor
+were the way to define "classes" in JavaScript. (Classes and constructor
 functions work in mostly the same way at runtime).
 
 ## Defining the Constructor
@@ -61,7 +61,7 @@ console.log(cat.happiness, dog.happiness);
 
 ## Chaining
 
-Chaining refers to the an object tht returns itself so that additional
+Chaining refers to the an object that returns itself so that additional
 methods can be called directly from the prior method call.
 
 ```js

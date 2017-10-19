@@ -39,7 +39,7 @@ for(let i = 0; i < array.length; i++) {
 // 3
 ```
 
-## Methods for Changing Array
+## Methods for Changing an Array
 
 ### `.push` and `.pop`
 
@@ -52,11 +52,15 @@ const letters = ['a', 'b', 'c'];
 const newLength = letters.push('d'); // ['a', 'b', 'c', 'd']
 console.log(newLength);
 // 4
+```
+
+```js
+const letters = ['a', 'b', 'c'];
 
 // `.pop` returns removed element
-const popped = letters.pop(); // ['a', 'b', 'c'];
+const popped = letters.pop(); // ['a', 'b'];
 console.log(popped);
-// 'd'
+// 'c'
 ```
 
 Push will accept more than one argument:
@@ -77,11 +81,15 @@ const letters = ['a', 'b', 'c'];
 const newLength = letters.unshift('d'); // ['d', 'a', 'b', 'c']
 console.log(newLength);
 // 4
+```
+
+```js
+const letters = ['a', 'b', 'c'];
 
 // `.shift` returns removed element
-const unshift = letters.shift(); // ['a', 'b', 'c']
+const unshift = letters.shift(); // ['a', 'b']
 console.log(popped);
-// 'd'
+// 'c'
 ```
 
 Like push, unshift accepts multiple arguments.
@@ -90,7 +98,7 @@ Like push, unshift accepts multiple arguments.
 
 Splice can handle any type of insertion and/or removal. Parameters (some optional) are:
 
-`array.splice(<startingIndex>, <number of elements to remove>, <first element to add>, <first element to add>, ...)`
+`array.splice(<startingIndex>, <number of elements to remove>, <first element to add>, <second element to add>, ...)`
 
 ```js
 const letters = ['a', 'b', 'c'];
@@ -217,63 +225,18 @@ console.log(getIndex(72));
 // 1
 ```
 
-### `.reduce`
+### `.indexOf`
 
-`.reduce` is used to transform an array into another data structure
-based on visiting each element in the array. 
-
-It adds another parameter to the callback function of the data 
-structure being used to accumulate the result (sometimes called the 
-"accumulator"). This must be returned from each call to the supplied 
-function in order to be supplied to the next function call or to 
-provide the final value. 
-
-The `.reduce` call itself also takes a second parameter that is the initial value for the accumulator:
+IndexOf is a shorthand special case for `.findIndex`:
 
 ```js
-const numbers = [3, 2, 9, 4];
-const sum = numbers.reduce((total, n) => {
-    return total + n;
-    return total;
-}, 0);
-console.log(sum);
-// 18
-```
+const words = ['peach', 'mango', 'apple', 'banana'];
+const foundIndex = words.findIndex(word => word === 'apple');
+// found is 2
 
-If the second initial value is omitted, the first call
-to reduce is the first and second elements of the array.
-The above `sum` can be written more succinctly as:
-
-```js
-const numbers = [3, 2, 9, 4];
-const sum = numbers.reduce((total, n) => total + n);
-console.log(sum);
-// 18
-```
-
-`.reduce` can also be used for more complex transformations:
-
-```js
-const animals = [
-    { type: 'cat',  name: 'felix'    }
-    { type: 'bird', name: 'polly'    }
-    { type: 'dog',  name: 'lassie'   }
-    { type: 'cat',  name: 'garfield' }
-    { type: 'bird', name: 'tweety'   }
-];
-
-const animalsByType = animals.reduce((byType, animal) => {
-    if(!byType[animal.type]) byType[animal.type] = [];
-    byType[animal.type].push(animal.name);
-    return byType;
-}, {});
-
-console.log(animalsByType);
-// {
-//     cat: ['felix', 'garfield'],
-//     dog: ['lassie'],
-//     bird: ['polly', 'tweety']
-// }
+// does same thing as above:
+const index = words.indexOf('apple');
+// index is 2
 ```
 
 ### `.sort`
@@ -311,17 +274,4 @@ console.log(numbers);
 // [1, 10, 12, 3, 30, 7];
 ```
 
-### `.indexOf`
-
-IndexOf is really a shorthand special case for `.findIndex`:
-
-```js
-const words = ['peach', 'mango', 'apple', 'banana'];
-const foundIndex = words.findIndex(word => word === 'apple');
-// found is 2
-
-// does same thin as above:
-const index = words.indexOf('apple');
-// index is 2
-```
  

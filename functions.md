@@ -23,7 +23,7 @@ add(1, 2);
 
 ## Types of Function Definitions
 
-There are four types of functions that can be defined in JavaScript.
+There are three main types of functions that can be defined in JavaScript.
 
 ### Function Declarations
 
@@ -56,24 +56,6 @@ const add = function(a, b) { return x + y; }
 button.addEventListener('click', function(event){
     alert('clicked!');
 });
-```
-
-### Named Function Expressions
-
-Function expressions can be given a name. However they are only accessible by
-that name _within_ the named function:
-
-```js
-$.get("/folders", function printTree(items) {
-  items.forEach(item => {
-      console.log(item.name);
-      if(item.type === 'folder' ) printTree(item.children);
-  });
-});
-
-// this will throw an error as a named function expression cannot 
-// be called from outside of itself
-// printTree(otherItems);
 ```
 
 Function expressions without a name are sometimes referred to as
