@@ -5,6 +5,11 @@ Prior to the introduction of the `class` in ES6, constructor functions
 were the way to define "classes" in JavaScript. (Classes and constructor
 functions work in mostly the same way at runtime).
 
+> NOTE: Constructor functions are not as important as they once were. You should
+be familiar with constructor functions, under the hood they are more-or-less the same
+as classes, but you do not need to be particularlly fluent in the syntax as you 
+won't be writing this syntax very often, if at all.
+
 ## Defining the Constructor
 
 The initialization code for an object goes into the constructor function:
