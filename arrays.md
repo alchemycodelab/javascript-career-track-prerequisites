@@ -5,21 +5,22 @@ Arrays are one of the fundamental data structures in JavaScript, used to track l
 
 ## Length And Index 
 
-Arrays have a `.length` property. Use `[` `]` to get set elements by index.
+Arrays have a `.length` property. Use `[` `]` to get and set elements by index.
 
 ```js
-const array = [1, 2, 3];
+const array = ['a', 'b', 'c'];
 
 array.length // returns 3, count of elements
 
 // get an element, 0-based indexes:
-const number = array[0]; // number === 1
+const letter = array[0]; // 'a'
 
 // get last element
-array[array.length - 1]; // 3
+array[array.length - 1]; // 'c'
 
 // set an element:
-array[0] = 12;
+array[1] = 'f'; 
+// array is now ['a', 'f', 'c']
 
 ```
 
@@ -30,7 +31,7 @@ Iteration of arrays is based on using the `.length` and `[` `]` index of the arr
 ```js
 const array = [1, 2, 3];
 
-// indexes as length allow looping
+// indexes and length allow looping
 for(let i = 0; i < array.length; i++) {
     console.log(array[i]);
 }
@@ -45,50 +46,63 @@ for(let i = 0; i < array.length; i++) {
 
 These array methods add or remove an element from the **end** of an array.
 
+Basic `push`:
+
 ```js
 const letters = ['a', 'b', 'c'];
 
 // `.push` returns new length of array
-const newLength = letters.push('d'); // ['a', 'b', 'c', 'd']
+const newLength = letters.push('d'); 
+// letters is now ['a', 'b', 'c', 'd']
 console.log(newLength);
 // 4
 ```
+
+Basic `pop`:
 
 ```js
 const letters = ['a', 'b', 'c'];
 
 // `.pop` returns removed element
-const popped = letters.pop(); // ['a', 'b'];
+const popped = letters.pop(); 
+// letters is now ['a', 'b'];
 console.log(popped);
 // 'c'
 ```
 
-Push will accept more than one argument:
+`push` will accept more than one argument:
 
 ```js
 const letters = ['a', 'b', 'c'];
-letters.push('d', 'e', 'f'); // ['a', 'b', 'c', 'd', 'e', 'f']
+letters.push('d', 'e', 'f'); 
+// letters is now ['a', 'b', 'c', 'd', 'e', 'f']
 ```
 
 ### `.unshift` and `.shift`
 
 These array methods add or remove an element from the **start** of an array.
 
+`unshift`:
+
 ```js
 const letters = ['a', 'b', 'c'];
 
 // `.unshift` returns new length of array
-const newLength = letters.unshift('d'); // ['d', 'a', 'b', 'c']
+const newLength = letters.unshift('d'); 
+// letters is now ['d', 'a', 'b', 'c']
 console.log(newLength);
 // 4
 ```
+
+`shift`
 
 ```js
 const letters = ['a', 'b', 'c'];
 
 // `.shift` returns removed element
-const unshift = letters.shift(); // ['a', 'b']
-console.log(popped);
+const letter = letters.shift(); 
+// letters is now ['a', 'b']
+console.log(letter);
 // 'c'
 ```
 
@@ -102,7 +116,8 @@ Splice can handle any type of insertion and/or removal. Parameters (some optiona
 
 ```js
 const letters = ['a', 'b', 'c'];
-letters.splice(2, 1, 'd', 'e'); // ['a', 'b', 'd', 'e'];
+letters.splice(2, 1, 'd', 'e'); 
+// letters is now ['a', 'b', 'd', 'e'];
 ```
 
 ## `.slice`
@@ -113,10 +128,10 @@ Not to be confused with `.splice`, `.slice` copies an array:
 const letters = ['a', 'b', 'c'];
 const copy = letters.slice();
 copy.splice(1, 2);
-console.log(letters);
-// ['a', 'b', 'c']
 console.log(copy);
 // ['a']
+console.log(letters);
+// ['a', 'b', 'c']
 ```
 
 Slice can optionally take start and end indexes from which to copy.
@@ -134,13 +149,13 @@ two arguments to almost all of these methods are:
 Calls the given function for each element in the array:
 
 ```js
-const array = [1, 2, 3];
+const array = ['a', 'b', 'c'];
 array.forEach((element, index) => {
     console.log(index, '-', element);
 });
-// 0 - 1
-// 1 - 2
-// 2 - 3
+// 0 - a
+// 1 - b
+// 2 - c
 ```
 
 ### `.map` 
@@ -152,9 +167,7 @@ and putting the return value in the same index in the new array:
 const numbers = [1, 2, 3];
 const squared = numbers.map(x => x * x);
 console.log(squared);
-// 1
-// 4
-// 9
+// [1, 4, 9]
 
 const letters = ['a', 'b', 'c'];
 const list = letters.map((letter, index) => {
@@ -174,19 +187,24 @@ Recognize that this is an anti-pattern:
 const numbers = [1, 2, 3];
 const squared = [];
 numbers.forEach(x => {
-    squared.push(x);
+    squared.push(x * x);
 });
 ```
 
-And should be replaced with a `.map` operation.
+And should be replaced with a `.map` operation:
+
+```js
+const numbers = [1, 2, 3];
+const squared = numbers.map(x => x * x);
+```
 
 ### `.filter`
 
 Some of the array methods, like `.filter`, take functions called
-predicates that test each element for some condition and return true
+"predicates" that test each element for some condition and return true
 or false.  Other examples are `.find`, `.findIndex`, `.some`, and `.every`.
 
-`.filter` returns a new array with only those elements that return true 
+`.filter` returns a new array with only those elements that return "truthy" 
 when passed to the predicate function:
 
 ```js
@@ -198,9 +216,13 @@ console.log(small);
 
 ### `.find` and `.findIndex`
 
-These are also predicate based array methods like `.filter`. 
+These are also predicate based array methods (like `.filter`). 
 Instead of returning a new array, `.find` returns the first element
-"found" (returns `true` from the callback function). `findIndex` returns the index of the first found element.
+"found" (returns a truthy value from the callback function). Returns 
+`undefined` if no match.
+
+`findIndex` returns the index of the first found element. Returns
+`-1` if no match.
 
 ```js
 const fruits = [
@@ -210,24 +232,19 @@ const fruits = [
     { id: 34, name: 'mango' }
 ];
 
-function findById(id) {
-    return fruits.find(fruit => fruit.id === id);
-}
-
-function getIndex(id) {
-    return fruits.findIndex(fruit => fruit.id === id);
-}
-
-console.log(findById(72));
+const found = fruits.find(fruit => fruit.id === 72);
+console.log(found);
 // { id: 72, name: 'pear' }
 
-console.log(getIndex(72));
+const index = fruits.findIndex(fruit => fruit.id === 72);
+console.log(index);
 // 1
 ```
 
 ### `.indexOf`
 
-IndexOf is a shorthand special case for `.findIndex`:
+`indexOf` is a shorthand case for `.findIndex` where the match is
+based on equality of the value:
 
 ```js
 const words = ['peach', 'mango', 'apple', 'banana'];
@@ -242,10 +259,9 @@ const index = words.indexOf('apple');
 ### `.sort`
 
 Unlike the previous array methods, calling `.sort` _changes the array_
-rather than creating a new array. It also has a different style of 
-callback function than the other array methods, a comparison function that
-takes two items and you indicate the relative sort order by returning a negative number,
-zero, or a positive number.
+rather than creating a new array (it does return a value of the array itself). 
+
+It also has a different style of callback function than the other array methods, a comparison function that takes two items and you indicate the relative sort order by returning a negative number, zero, or a positive number.
 
 ```js
 const numbers = [3, 7, 2, 7, 2, 2, 9];
@@ -258,7 +274,7 @@ console.log(numbers);
 // [2, 2, 2, 3, 7, 7, 9]
 ```
 
-The default sort if lexical sorting (sorted alphabetically).
+The default sort is lexical sorting (sorted alphabetically).
 
 ```js
 const words = ['peach', 'mango', 'apple', 'banana'];
