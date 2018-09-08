@@ -7,7 +7,7 @@ functions work in mostly the same way at runtime).
 
 > NOTE: Constructor functions are not as important as they once were. You should
 be familiar with constructor functions, under the hood they are more-or-less the same
-as classes, but you do not need to be particularlly fluent in the syntax as you 
+as classes, but you do not need to be particularly fluent in the syntax as you 
 won't be writing this syntax very often, if at all.
 
 ## Defining the Constructor
