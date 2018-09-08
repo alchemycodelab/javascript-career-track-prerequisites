@@ -7,8 +7,7 @@ It is important to distinguish between a function as an object, and calling a fu
 
 ## Parameters and Arguments
 
-A function definition includes the parameters defined for that function. The values passed to a call to that function are the arguments passed to the
-function.
+A function definition includes the parameters defined for that function. The values passed when calling a function are the "arguments" passed to the function.
 
 ```js
 // the function "add" as two defined parameters, `x` and `y`.
@@ -28,7 +27,7 @@ There are three main types of functions that can be defined in JavaScript.
 ### Function Declarations
 
 Declared functions are stand-alone functions with a name. Declared functions
-can be used by code prior to the function declaration.
+_can_ be used by code prior to the function declaration.
 
 ```js
 
@@ -43,7 +42,7 @@ function add(x, y) {
 
 ### Function Expressions
 
-Function expression are used as an expression, meaning they can be assigned to 
+Function expressions are used as an expression, meaning they can be assigned to 
 variables or passed to other functions. They cannot be called prior to being
 defined.
 
