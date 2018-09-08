@@ -2,8 +2,7 @@ Try/Catch
 ===
 
 Potentials errors can be "caught" in JavaScript by putting the code you want
-to "try" into a try block. Then if an error occurs, it will be passed to the 
-"catch" block:
+to "try" into a try block. If an error occurs in the code being run in the `try`, control flow will be passed to the "catch" block and include the error that occurred:
 
 ```js
 const person = undefined;
