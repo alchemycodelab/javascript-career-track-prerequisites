@@ -3,13 +3,17 @@ Blocks
 
 ## Indent blocks properly
 
+All child code with the block should be indented one level. There should
+never be anything in the block that has the same left-margin as the parent
+containing block.
+
 ```js
 if(foo) {
-  console.log('i am indented');
+  console.log('I am indented');
 }
 ```
 
-## Identify Blocks
+## Identify us of curly-braces for blocks
 
 Differentiate `{` `}` used in blocks versus other uses in JavaScript like
 object literals:
@@ -38,6 +42,9 @@ while(node = node.parent) parent = node;
 ```
 
 ## Scope variables via `const` and `let` to blocks
+
+When declaring `const` and `let` variables, they are scoped
+to the containing block:
 
 ```js
 if(foo) {
