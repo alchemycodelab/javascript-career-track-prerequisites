@@ -1,5 +1,7 @@
-401 Advanced FullStack JavaScript Prerequisites
-===
+<div style="display:flex;align-items:center;">
+  <img src="logo.png" alt="Alchemy Code Lab Logo" style="float:left; width: 100px;margin-right: 15px;">
+  <h1>JavaScript Career Track Prerequisites</h1>
+</div>
 
 This repo contains guides that explain the level of JavaScript proficiency expected of students entering the Advanced Software Development in FullStack JavaScript Career Track.
 
