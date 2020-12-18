@@ -1,6 +1,9 @@
 Constructor Functions
 ===
 
+This is no longer "essential". Good to know if you want to appear very versed in JavaScript, or dealing with legacy code, but you will be using `class` exclusively now.
+---
+
 Prior to the introduction of the `class` in ES6, constructor functions
 were the way to define "classes" in JavaScript. (Classes and constructor
 functions work in mostly the same way at runtime).
