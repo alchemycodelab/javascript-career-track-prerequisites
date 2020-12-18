@@ -1,7 +1,7 @@
 Arrays
 ===
 
-Arrays are one of the fundamental data structures in JavaScript, used to track lists of items.
+Arrays are one of the fundamental data structures in JavaScript, used to track lists of items. Arrays are stored contiguously in memory. Reading or writing a single element is `O(1)` constant time. Accessing the list (iteration) is `O(n)`.
 
 ## Length And Index 
 
