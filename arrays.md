@@ -101,9 +101,9 @@ const letters = ['a', 'b', 'c'];
 
 // `.shift` returns removed element
 const letter = letters.shift(); 
-// letters is now ['a', 'b']
+// letters is now ['b', 'c']
 console.log(letter);
-// 'c'
+// 'a'
 ```
 
 Like push, unshift accepts multiple arguments.
