@@ -120,7 +120,7 @@ letters.splice(2, 1, 'd', 'e');
 // letters is now ['a', 'b', 'd', 'e'];
 ```
 
-## `.slice`
+### `.slice`
 
 Not to be confused with `.splice`, `.slice` copies an array:
 
