@@ -34,7 +34,7 @@ cat.meow() // <-- call site! "cat" is to the left of the "."
 
 The second case is an example of the biggest mistake made when passing a function that needs
 its `this` context to work correctly. Usually it happens when passing the function 
-as an callback method:
+as a callback method:
 
 ```js
 // When passing the function as an argument, it is no longer associated 
